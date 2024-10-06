@@ -1,8 +1,25 @@
 #include <iostream>
 #include <cmath>
-
-
 using namespace std;
+
+string check_age(int age){
+    if (age % 100 >= 11 && age % 100 <= 19) {
+        return " лет";
+    } else {
+        switch (age % 10) {
+            case 1:
+                return " год";
+            case 2:
+            case 3:
+            case 4:
+                return " года";
+            default:
+                return " лет";
+        }
+    }
+}
+
+
 int main(){
     //Задание 1
     setlocale(LC_ALL,"RU");
@@ -21,7 +38,7 @@ int main(){
     cin >> weight;
     cout << "Введите ваш рост: ";
     cin >> hight;
-    cout << "Имя: " << name << "; " << "Возраст: " << age << "; " << "вес: " << weight << "; " << "рост: " << hight << endl;
+    cout << "Имя: " << name << "; " << "Возраст: " << age << check_age(age) <<"; " << "вес: " << weight << "кг; " << "рост: " << hight << "см" << endl;
     // задание 3
     cout << "Размеры типов данных в байтах:" << endl;
     cout << "int: " << sizeof(int) << " байт" << endl;
